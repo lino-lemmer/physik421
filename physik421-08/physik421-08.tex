@@ -14,8 +14,11 @@
 \begin{document}
 \maketitle
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2697d001350ef13a6b10e9cee77d67a1423b9cc8
 \section{Eigenvektoren in einer Orthonormalbasis}
 \subsection{}
 Es soll bestimmt werden, ob $\sigma_y$ hermitesch ist.
@@ -24,7 +27,7 @@ Es soll bestimmt werden, ob $\sigma_y$ hermitesch ist.
     \begin{pmatrix}
         0 &\ii \\
         -\ii &0
-    \end{pmatrix}* \\
+    \end{pmatrix}^* \\
     &= \begin{pmatrix}
         0 &-\ii \\
         \ii &0
@@ -37,7 +40,8 @@ Außerdem sollen die Eigenwerte und Eigenvektoren bestimmt werden.
     \abs{\sigma_y-\lambda\mathbb{1}} &= (-\lambda)^2-(-\ii)\ii \\
                                     &= \lambda^2-1 \\
                                     &\implies \lambda_1 =1, \qquad \lambda_2 = -1
-    \lambda_1 &\implies \underbrace{\frac{1}{\sqrt{2}}}_\text{normierung}\begin{pmatrix}
+    \lambda_1 \\
+    &\implies \underbrace{\frac{1}{\sqrt{2}}}_\text{normierung}\begin{pmatrix}
         1 \\ \ii
     \end{pmatrix} = \Phi_1\\
     \lambda_2 &\implies \frac 1{\sqrt 2}\begin{pmatrix}
@@ -50,9 +54,9 @@ Es soll Orthogonalität und Vollständigkeit der Eigenvektoren überprüft werde
 
 Orthogonalität: $\Phi_1*\Phi_2 = 1-1 = 0$
 
-Vollständigkeit: $\tilde{\eta_1} = \frac 1{\sqrt 2}(\Phi_1 +\Phi_2) \qquad tilde{\eta_2} = \frac 1{\sqrt 2}(\Phi_1 -\Phi_2) $
+Vollständigkeit: $\tilde{\eta}_1 = \frac 1{\sqrt 2}(\Phi_1 +\Phi_2) \qquad \tilde{\eta}_2 = \frac 1{\sqrt 2}(\Phi_1 -\Phi_2) $
 
-Da man die Bais durch die Eigenvektoren darstellen kann, müssen die Eigenvektoren vollständig sein.
+Da man die Basis durch die Eigenvektoren darstellen kann, müssen die Eigenvektoren vollständig sein.
 
 \subsection{}
 \begin{align*}
@@ -132,12 +136,12 @@ Zu zeigen $P_iP_j = \delta_{ij}$
         \frac 12 \begin{pmatrix} 1 & -\ii \\ \ii & 1 \end{pmatrix} \\
                                    &= \frac 14 \begin{pmatrix} 2 & -2i \\ 2i & 2 \end{pmatrix} \\
                                    &=\frac 12 \begin{pmatrix} 1 &-\ii \\ -\ii & 1 \end{pmatrix} \\
-                                   &=P_1
+                                   &=P_1 \\
     &...
 \end{align*}
 Zu zeigen: $\sum_\ii P_\ii = \mathbb{1}$
 \begin{align*}
-    P_1+P_2 &= \frac 12 \begin{pmatrix} 1 &-\ii \\ \ii & 1 \end{pmatrix} 
+    P_1+P_2 &= \frac 12 \begin{pmatrix} 1 &-\ii \\ \ii & 1 \end{pmatrix} +
         \frac 12 \begin{pmatrix} 1 & \ii \\ -\ii & 1 \end{pmatrix} \\
                                    &= \frac 12 \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix} \\
                                    &=\frac 12 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
@@ -166,7 +170,7 @@ und
 \]
 
 \subsection{}
-$H$ ist hermitsch, da man es transponieren und komplex konjugieren kann ohne das es sich ändert. Bei $B$ müsste dafür gelten, dass $b$ reell ist.
+$H$ ist hermitsch, da man es transponieren und komplex konjugieren kann ohne dass es sich ändert. Bei $B$ müsste dafür gelten, dass $b$ reell ist.
 
 \subsection{}
 Um zu zeigen, dass $H$ und $B$ vertauschen muss gezeigt werden, dasss $[H,B] = 0$ gilt.
@@ -209,8 +213,7 @@ Um zu zeigen, dass $H$ und $B$ vertauschen muss gezeigt werden, dasss $[H,B] = 0
 
 \subsection{}
 Als nächstes sollen drei Vektoren bestimmt werden, die sowohl von $H$ als auch von $B$ Eigenvektoren sind.
-
-Zunächst bestimme ich die Eigenwerte der beiden Matrizen um daraus die eigenräume zu bestimmen, aus denen ich gemeiame Vektoren ermittele.
+Zunächst bestimme ich die Eigenwerte der beiden Matrizen um daraus die Eigenräume zu bestimmen, aus denen ich gemeinsame Vektoren ermittele.
 Die Eigenwerte ermittel ich mit $\text{det}(A-\lambda \mathbb{1})$. 
 Damit erhalte ich als Eigenwerte zu der Matrix von $H$ $\lambda_{1,2}=\hbar\omega$ und $\lambda_3=0$.
 Für die Matrix von $B$ erhalte ich ebenfalls einen doppelten Eigenwert $\lambda_{1,2}=b$ und einen einzelnen $\lambda_3=-b$.
@@ -240,16 +243,16 @@ Deswegen wird der Zustand durch diese EV auch nicht eindeutig estgelegt. $\impli
 \section{Heisenbergdarstellung von Operatoren}
 \subsection{}
 Zu zeigen:
-$[A^n,B] = nA^{n-1}[A,B]$ falls $[A,B] = c \in \mathbb C$
+$\sbr{A^n,B} = nA^{n-1}[A,B]$ falls $[A,B] = c \in \mathbb C$
 Induktionsanfang: $n=1$
 \[
     [A,B] = 1A^0[A,B]
 \]
-Induktionsschritt: angenommen die Behauptung gilt für n: zu zeigen $[A^{n+1},B] = (n+1)A^n[A,B]$
+Induktionsschritt: angenommen die Behauptung gilt für n: zu zeigen $\sbr{A^{n+1},B} = (n+1)A^n[A,B]$
 \begin{align*}
-    \implies [A^{n+1},B] &= A^{n+1}B-BA^{n+1} \\
+    \implies \sbr{A^{n+1},B} &= A^{n+1}B-BA^{n+1} \\
                          &= A^{n+1}B-A^nBA+A^nBA-BA^{n+1} \\
-                         &= A^n[A,B]+[A^n,B]A \\
+                         &= A^n[A,B]+\sbr{A^n,B}A \\
                          &= cA^n+nA^{n-1}cA \\
                          &= (n+1)A^nc \\
                          &= (n+1)A^n[A,B]
@@ -258,20 +261,55 @@ Induktionsschritt: angenommen die Behauptung gilt für n: zu zeigen $[A^{n+1},B]
 \subsection{}
 Zu zeigen $[H,p] \in\mathbb C$ mit $H = p^2/2m-qE_x$:
 \begin{align*}
-    [H,p] &= [\frac{p^2}{2m}-qE_x,p] \\
-          &= -qE\underbrace{[x,p]}_{i\hbar} \qquad|\text{ da }[p,p]=0 \\
-          &= -i\hbar qE \in\mathbb C
+    [H,p] &= \sbr{\frac{p^2}{2m}-qE_x,p} \\
+          &= -qE\underbrace{\sbr{x,p}}_{\ii\hbar} \qquad|\text{ da }\sbr{p,p}=0 \\
+          &= -\ii\hbar qE \in\mathbb C
 \end{align*}
 
 \subsection{}
-Zu zeigen: $\hat{p_H}(t) = \hat{p_H}(0)+qE+\hat{e_x}$ mit $H=\hat{p^2}/2m-qE_x$
+Zu zeigen: $\hat p_H(t) = \hat p_H(0)+qE+\hat e_x$ mit $H=\hat p^2/2m-qE_x$
 \begin{align*}
-    \hat{p_H}(t) &= \ee^{\ii Ht/\hbar}\hat{p}\ee^{-\ii Ht/\hbar} \\
-                 &= sum^\infty_{n=0}\frac 1{n!}\\del{\frac i\hbar}^nt^nH^n\hat p\ee^{\ii Ht/\hbar} \\
-                 &= \sum^\infty_{n=0} \frac 1{(n-0)!}\del{\frac i\hbar t}^{n-1}H^{n-1}\del{\frac i\hbar t}(-\ii\hbar qE\hat{e_x})+\hat p \\
-                 &= \hat p + qE+\hat{e_x} \\
-                 &=\hat{p_H}(0)+qE+\hat{e_x}
+    \hat p_H(t) &= \ee^{\ii Ht/\hbar}\hat{p}\ee^{-\ii Ht/\hbar} \\
+                 &= \sum^\infty_{n=0}\frac 1{n!}\del{\frac \ii\hbar}^nt^nH^n\hat p\ee^{\ii Ht/\hbar} \\
+                 &= \sum^\infty_{n=0} \frac 1{(n-0)!}\del{\frac \ii\hbar t}^{n-1}H^{n-1}\del{\frac \ii\hbar t}(-\ii\hbar qE\hat{e_x})+\hat p \\
+                 &= \hat p + qE+\hat e_x \\
+                 &=\hat p_H(0)+qE+\hat e_x
 \end{align*}
+
+\section{Zeitentwicklung der Matrix-Darstellung von Operatoren im Wechselwirkungsbild}
+
+Gegeben ist ein Operator $\vec{q}_I$ im Wechselwirkungsbild. Es soll gezeigt werden, dass die Zeitableitung gegeben ist durch:
+\[
+	\ii\hbar\dod{}{t}\vec{q}_I=\ii\hbar\dpd{}{t}\vec{q}_I+\left[\vec{H}_0,\vec{q}_I\right]
+\]
+
+<<<<<<< HEAD
+Im Wechselwirkungsbild benutzt man den Hamilton-Operator $H=H_0+H_1$, wobei $H_0$ das Wechelwirkungsfreihe System und $H_1$ die Wechselwirkung beschreiben. Dabei gilt für die Wellenfunktion $\Psi_I$ im Wechselwirkungsbild (Nolting, Seite 221):
+\begin{align*}
+	\ket{\Psi_I\del{t}}=U_0\del{t_0,t}\ket{\Psi\del{t}}&&\text{mit }U_0\del{t_0,t}=\ee^{\frac{\ii}{\hbar}\vec{H}_0\del{t-t_0}}
+\end{align*}
+Soll nun eine Observable A in das Wechselbild transformiert werden folgt:
+\begin{align*}
+	\braopket{\Psi}{A}{\Psi}&=\braopket{\Psi}{U_0\del{t_0,t}U_0^{-1}\del{t_0,t}AU_0\del{t_0,t}U_0^{-1}\del{t_0,t}}{\Psi}\\
+	&=\braopket{\Psi_I}{U_0^{-1}\del{t_0,t}AU_0\del{t_0,t}}{\Psi_I}\\
+\end{align*}
+Der transformierte Operator $A_I$ ist also $U_0^{-1}\del{t_0,t}AU_0\del{t_0,t}$. Damit lässt sich nun die gewünschte Geleichung herleiten (zur Übersichtlichkeit lasse ich die $\del{t_0,t}$-Abhängigkeit weg:
+\begin{align*}
+	\ii\hbar\dod{}{t}\vec{q}_I&=\ii\hbar\dod{}{t}\del{U_0^{-1}\vec{q}U_0}\\
+	&=\ii\hbar\dpd{U_0^{-1}}{t}\vec{q}U_0+\ii\hbar U_0^{-1}\dpd{\vec{q}}{t}U_0+\ii\hbar U_0^{-1}\vec{q}\dpd{U_0}{t}\\
+	\intertext{%
+		mit $\dpd{U_0}{t}=\frac{\ii}{\hbar}\vec{H}_0U_0$ und $\dpd{U_0^{-1}}{t}=-\frac{\ii}{\hbar}U_0^{-1}\vec{H}_0$
+	}
+	&=\vec{H}_0U_0^{-1}\vec{q}U_0+\ii\hbar U_0^{-1}\dpd{\vec{q}}{t}U_0-U_0^{-1}\vec{q}U_0\vec{H}_0\\
+	\intertext{%
+		mit $\vec{q}_I=U_0\vec{q}U_0^{-1}$ und $\dpd{\vec{q}_I}{t}=U_0\dpd{\vec{q}}{t}U_0^{-1}$
+	}
+	&=\vec{H}_0\vec{q}_I-\vec{q}_I\vec{H}_0+\ii\hbar\dpd{\vec{q}_I}{t}\\
+	&=\left[\vec{H}_0,\vec{q}_I\right]+\ii\hbar\dpd{\vec{q}_I}{t}
+\end{align*}
+=======
+>>>>>>> 2697d001350ef13a6b10e9cee77d67a1423b9cc8
+
 
 \section{Zeitentwicklung der Matrix-Darstellung von Operatoren im Wechselwirkungsbild}
 
@@ -303,7 +341,6 @@ Der transformierte Operator $A_I$ ist also $U_0^{-1}\del{t_0,t}AU_0\del{t_0,t}$.
 	&=\vec{H}_0\vec{q}_I-\vec{q}_I\vec{H}_0+\ii\hbar\dpd{\vec{q}_I}{t}\\
 	&=\left[\vec{H}_0,\vec{q}_I\right]+\ii\hbar\dpd{\vec{q}_I}{t}
 \end{align*}
-
 
 
 \end{document}

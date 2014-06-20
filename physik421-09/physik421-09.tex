@@ -1,0 +1,198 @@
+\input{../header.tex}
+
+\newcounter{thezettel}
+\setcounter{thezettel}{9}
+\renewcommand\thesection{\arabic{thezettel}.\arabic{section}}
+
+
+
+\title{physik421 - Übung \arabic{thezettel}}
+\author{Lino Lemmer \\ \small{l2@uni-bonn.de} \and Frederike Schrödel \and Simon Schlepphorst\\ \small{s2@uni-bonn.de}}
+
+\begin{document}
+\maketitle
+
+\section{Drehmatrix}
+
+\subsection{}
+
+Eine Drehmatrix erfüllt folgende Eigenschaften:
+\begin{itemize}
+    \item
+        $\det(\mat{M}) = 1$
+    \item
+        $\mathbf{M}\cdot\mathbf{M}^\text{T} = \mathbb{1}$
+\end{itemize}
+
+Da für die gegebene Matrix jedoch gilt
+\[
+    \det(\mat D) = \frac1{\sqrt{2}},
+\]
+in den folgenden Teilaufgaben jedoch davon ausgegangen wird, die Matrix sei eine Drehmatrix, gehe ich von folgender Matrix aus:
+\[
+    \mat D = \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        -1 & 0 & -1 \\
+        0 & \sqrt2 & 0 \\
+        1 & 0 & -1
+    \end{pmatrix}.
+\]
+Für diese prüfe ich die oben genannten Eigenschaften.
+\begin{align*}
+    \det (\mat D) &= \del{\frac1{\sqrt{2}}}^3 \cdot
+    \begin{vmatrix}
+        -1 & 0 & -1 \\
+        0 & \sqrt2 & 0 \\
+        1 & 0 & -1
+    \end{vmatrix} \\
+    &= \del{\frac1{\sqrt{2}}}^3 \cdot\del{ - 0 \cdot 
+    \begin{vmatrix}
+        0 & 0 \\
+        1 & -1
+    \end{vmatrix} + \sqrt2 \cdot \begin{vmatrix}
+        -1 & -1 \\
+        1 & -1
+    \end{vmatrix} - 0 \cdot \begin{vmatrix}
+        -1 & -1 \\
+        0 & 0
+    \end{vmatrix}} \\
+    &= \del{\frac1{\sqrt{2}}}^2 \cdot
+    \begin{vmatrix}
+    -1 & -1 \\
+    1 & -1
+    \end{vmatrix} \\
+    &= \half \del{(-1)\cdot(-1)-1\cdot(-1)} \\
+    &= 1
+    \intertext{%
+        Damit wäre die erste Bedingung erfüllt.
+    }
+    \mat D \cdot \mat D^\text{T} &= \half
+    \begin{pmatrix}
+        -1 & 0 & -1 \\
+        0 & \sqrt2 & 0 \\
+        1 & 0 & -1
+    \end{pmatrix} \cdot
+    \begin{pmatrix}
+        -1 & 0 & 1 \\
+        0 & \sqrt2 & 0 \\
+        -1 & 0 & -1
+    \end{pmatrix} \\
+    &= \half
+    \begin{pmatrix}
+        1+1 & 0 & 1-1 \\
+        0 & 2 & 0 \\
+        1-1 & 0 1+1
+    \end{pmatrix} \\
+    &= \mathbb 1
+    \intertext{%
+        Beide Bedingungen sind erfüllt, es handelt sich also tatsächlich um eine Drehmatrix. Um nun herauszufinden, was sie für eine Drehung verursacht, lassen wir sie auf einen Vektor $\vec x$ wirken.
+    }
+    \mat D\cdot \vec x &= \frac 1{\sqrt2}
+    \begin{pmatrix}
+        -1 & 0 & -1 \\
+        0 & \sqrt2 & 0 \\
+        1 & 0 & -1
+    \end{pmatrix} \cdot
+    \begin{pmatrix}
+        x_1 \\
+        x_2 \\
+        x_3
+    \end{pmatrix}  \\
+    &= \begin{pmatrix}
+    \frac1{\sqrt2}\del{-x_1-x_3} \\
+    x_2 \\
+    \frac1{\sqrt2}\del{x_1-x_3} \mantag \label{eq:gedreht}
+\end{pmatrix}.
+\end{align*}
+Da die zweite Komponente des Vektors durch die Drehung nicht verändert wird, handelt es sich ganz offensichtlich um eine Drehung um die $y$-Achse.
+
+\subsection{}
+
+Mit \eqref{eq:gedreht} erhalten wir für die beiden Vektoren
+\begin{align*}
+    \vec a' &= \mat D \cdot \del{0,-2,1}^\text{T} \\
+            &= \begin{pmatrix}
+    \frac{1}{\sqrt{2}}\cdot\del{-0 - 1} \\
+    -2 \\
+    \frac{1}{\sqrt{2}}\cdot\del{0 - 1}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    -\frac1{\sqrt2} \\
+    -2 \\
+    -\frac1{\sqrt2}
+\end{pmatrix} \\
+    \vec b' &= \mat D \cdot \del{3,5,-4}^\text{T} \\
+            &= \begin{pmatrix}
+    \frac1{\sqrt2}\cdot\del{-3+4} \\
+        5 \\
+        \frac1{\sqrt{2}}\del{3+4}
+    \end{pmatrix} \\
+    &= \begin{pmatrix}
+    \frac1{\sqrt2} \\
+    5 \\
+    \frac7{\sqrt2}
+\end{pmatrix}
+\end{align*}
+
+\subsection{}
+
+Da gilt 
+\begin{align*}
+    \skp{\vec a}{\vec b} &= \abs a \cdot \abs b \dcos{\alpha},
+    \intertext{%
+        mit dem Winkel zwischen den Vektoren $\alpha$, und sowohl die Beträge der Vektoren, als auch der Winkel zwischen ihnen bei einer Drehung konstant bleiben, sollte das Skalarprodukt vor und nach der Drehung gleich sein. Dies Prüfen wir nun.
+    }
+    \skp{\vec a}{\vec b} &= \skp{\begin{pmatrix}
+    0 \\
+    -2 \\
+    1
+    \end{pmatrix}}{\begin{pmatrix}
+        3 \\
+        5 \\
+        -4
+    \end{pmatrix}} \\
+    &= 0 - 10 -4 \\
+    &= -14 \\
+    \skp{\vec a'}{\vec b'} &= \skp{\begin{pmatrix}
+    -\frac1{\sqrt2} \\
+    -2 \\
+    -\frac1{\sqrt2}
+    \end{pmatrix}}{\begin{pmatrix}
+    \frac1{\sqrt2} \\
+    5 \\
+    \frac7{\sqrt2}
+    \end{pmatrix}} \\
+    &= -\half - 10 - \frac72 \\
+    &= -14
+\end{align*}
+Unsere Vermutung ist somit bestätigt.
+
+\subsection{}
+
+Wie in der vorherigen Teilaufgabe schon erwähnt, ändern sich die Beträge der Vektoren nicht unter Drehung. Auch dies überprüfen wir noch.
+
+\begin{align*}
+    \abs{\vec a} &= \sqrt{0^2+(-2)^2+1^2} = \sqrt5 \\
+    \abs{\vec a'} &= \sqrt{\del{-\frac1{\sqrt2}}^2+(-2)^2+\del{-\frac1{\sqrt2}}^2} = \sqrt5 \\
+    \abs{\vec b} &= \sqrt{3^2+5^2+(-4)^2} = \sqrt{50} \\
+    \abs{\vec b} &= \sqrt{\del{\frac1{\sqrt2}}^2+5^2+\del{\frac7{\sqrt2}}^2} = 50
+\end{align*}
+Dies stimmt mit der Vermutung überein.
+
+\section{Quantenmechanischer Drehimpulsoperator}
+
+\subsection{}
+
+Es ist zu zeigen, dass der Drehimpulsoperator $\hat L = \hat X \times \hat P$ hermitesch ist, also dass gilt $\hat L^\dagger = \hat L$.
+\begin{align*}
+    \hat L_i &= \sum_{j=1}^3\sum_{k=1}^3 \epsilon_{ijk}\hat X_j \hat P_k 
+    \intertext{%
+        Da nur für $j\neq k$ das Levi-Civita-Symbol von null verschieden ist, kommutieren die entsprechenden Komponenten, und man kann schreiben
+    }
+             &= \sum_{j=1}^3\sum_{k=1}^3 \epsilon_{ijk}\hat P_k \hat X_j \\
+             &= \sum_{j=1}^3\sum_{k=1}^3 \epsilon_{ijk}\hat P_k^\dagger \hat X_j^\dagger \\
+             &= \sum_{j=1}^3\sum_{k=1}^3 \epsilon_{ijk}\del{\hat X_j\hat P_k}^\dagger \\
+             &= \hat L_i^\dagger.
+\end{align*}
+
+\end{document}
